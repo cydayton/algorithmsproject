@@ -157,7 +157,7 @@ class Kaleid{
         this.y2 = tempY2 + random(100, 200);
         this.x3 = tempX3 + random(0, 200);
         this.y3 = tempY3 + random(0, 200);
-        this.over = false;
+        //this.over = false;
     }
 
     //rollover(mx, my){
