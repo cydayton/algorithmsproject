@@ -1,17 +1,17 @@
-let triangles = [];
+let triangles = []; //creating an empty triangles array
 
 function setup(){
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(windowWidth, windowHeight); //canvas will take up entire screen
 }
 
 function draw(){
     fill(255);
-    //this could definitely be more efficient by creatings a stars class
-    push();
-    if((mouseX<220) && (mouseX>180) && (mouseY<220) && (mouseY>180)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
+    //this could definitely be more efficient by creatings a stars class, however wanted to visually and conceptually understand what is occurring for each step
+    push(); //push and pop to have formatting only apply to single star at a time
+    if((mouseX<220) && (mouseX>180) && (mouseY<220) && (mouseY>180)){ //approximate rollover function
+        stroke(random(0, 255), random(0, 255), random(0, 255)) //star strokes flash with colors
     }
-    star(200, 200, 20, 40, 5);
+    star(200, 200, 20, 40, 5); //star function below shows parameters for defining star shape (x, y, radius, side length, number of points)
     pop();
     push();
     if((mouseX<220) && (mouseX>180) && (mouseY<520) && (mouseY>480)){
@@ -127,7 +127,7 @@ function star(x, y, radius1, radius2, npoints) {
     let angle = TWO_PI / npoints;
     let halfAngle = angle / 2.0;
     beginShape();
-    for (let a = 0; a < TWO_PI; a += angle) {
+    for (let a = 0; a < TWO_PI; a += angle) { //a grows by an increment of angle as long as it is less than 2 pi
       let sx = x + cos(a) * radius2;
       let sy = y + sin(a) * radius2;
       vertex(sx, sy);
@@ -139,11 +139,11 @@ function star(x, y, radius1, radius2, npoints) {
   }
 
   function mousePressed(){
-    t = new Kaleid(mouseX, mouseY, mouseX, mouseY, mouseX, mouseY);
+    t = new Kaleid(mouseX, mouseY, mouseX, mouseY, mouseX, mouseY); //first triangle starts at mouse click location
     triangles.push(t); //push a new object into array
   }
 
-function keyPressed(){
+function keyPressed(){ //this allows the background to be reset any time enter key is pressed
     if (keyCode === ENTER) {
         background(255);
         }
@@ -159,7 +159,7 @@ class Kaleid{
         this.y3 = tempY3 + random(0, 200);
         //this.over = false;
     }
-
+//following code is something that I may incorporate in the future, but I decided to leave it out for now
     //rollover(mx, my){
         //let d = dist(mx, my, 0, 0);
         //if(d<windowWidth/2){
@@ -173,10 +173,10 @@ class Kaleid{
         triangle(this.x1, this.y1, this.x2, this.y2, this.x3, this.y3);
     }
 
-    rotate(rad){
+    rotate(rad){ //tells triangles to rotate
         translate(600, 400); 
         this.rad = rad;
-        if(this.x2>this.y2){
+        if(this.x2>this.y2){ //allows for different direction of rotation depending on the random size assigned to one of the sides of each triangle
             rotate(-rad);
         }
         else{rotate(rad)}
