@@ -30,11 +30,11 @@ function draw(){
     star(40, 200, 20, 40, 5); //star function below shows parameters for defining star shape (x, y, radius, side length, number of points)
     pop();
     push();
-    if((mouseX<60) && (mouseX>20) && (mouseY<520) && (mouseY>480)){
+    if((mouseX<150) && (mouseX>110) && (mouseY<470) && (mouseY>430)){
         stroke(random(0, 255), random(0, 255), random(0, 255))
         fill(255, 255, 0)
     }
-    star(40, 500, 20, 40, 5);
+    star(130, 450, 20, 40, 5);
     pop();
     push();
     if((mouseX<60) && (mouseX>20) && (mouseY<720) && (mouseY>680)){
@@ -135,11 +135,11 @@ function draw(){
     star(windowWidth-40, 220, 20, 40, 5);
     pop();
     push();
-    if((mouseX<windowWidth-40+20) && (mouseX>windowWidth-40-20) && (mouseY<500) && (mouseY>460)){
+    if((mouseX<windowWidth-120+20) && (mouseX>windowWidth-120-20) && (mouseY<500) && (mouseY>460)){
         stroke(random(0, 255), random(0, 255), random(0, 255))
         fill(255, 255, 0)
     }
-    star(windowWidth-40, 480, 20, 40, 5);
+    star(windowWidth-120, 480, 20, 40, 5);
     pop();
     push();
     if((mouseX<windowWidth-40+20) && (mouseX>windowWidth-40-20) && (mouseY<710) && (mouseY>670)){
@@ -156,9 +156,8 @@ function drawWords(x) {
     // The text() function needs three parameters:
     // the text to draw, the horizontal position,
     // and the vertical position
-    fill(255);
-    stroke(0)
-    text("make a wish...", windowWidth/2, windowHeight/3-100);
+    fill(255, 0, 0);
+    text("   make a wish...", windowWidth/2, windowHeight/3-100);
     text("click on the stars", windowWidth/2, windowHeight/3-60);
   }
 
