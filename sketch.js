@@ -36,7 +36,7 @@ function draw(){
         starz1[i].show();
         pop();
     }
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 2; i++) {
         push();
         s2 = new StarzT2();
         starz2.push(s2);
@@ -57,7 +57,7 @@ function draw(){
         starz1b[i].show();
         pop();
     }
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 6; i++) {
         push();
         s2b = new StarzT2b();
         starz2b.push(s2b);
@@ -87,8 +87,8 @@ function draw(){
 
 function drawWords(x) {
     fill(255, 0, 0);
-    text("  make a wish...", windowWidth/2, windowHeight/3-100);
-    text("click on the stars", windowWidth/2, windowHeight/3-60);
+    text("  make a wish...", windowWidth/2, windowHeight/3-60);
+    text("click on the stars", windowWidth/2, windowHeight/3-20);
   }
 
 function star(x, y, radius1, radius2, npoints) {
@@ -170,7 +170,7 @@ class StarzT1 {
 class StarzT2 {
     constructor() {
         this.x = random(windowWidth/3, 2*windowWidth/3);
-         this.y = random(40, windowHeight/2);
+         this.y = random(40, windowHeight/3-100);
         }
           
     show() {
@@ -218,7 +218,7 @@ class StarzT3 {
     class StarzT2b {
         constructor() {
             this.x = random(windowWidth/3, 2*windowWidth/3);
-             this.y = random(windowHeight/2, windowHeight-40);
+             this.y = random(windowHeight/3+80, windowHeight-40);
             }
               
         show() {
