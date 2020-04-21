@@ -1,163 +1,93 @@
 let triangles = []; //creating an empty triangles array
+let starz1 = [];
+let starz2 = [];
+let starz3 = [];
+let starz1b = [];
+let starz2b = [];
+let starz3b = [];
+let test;
+let s1;
+let s2;
+let s3;
+let s1b;
+let s2b;
+let s3b;
+var mithella;
+var adaml;
+var adamm;
 
+function preload() {
+    mithella = loadFont('mithella.otf');
+    adaml = loadFont('adaml.ttf');
+    adamm = loadFont('adamm.ttf');
+}
 function setup(){
     createCanvas(windowWidth, windowHeight); //canvas will take up entire screen
-    textFont();
+    textFont(adamm);
     textSize(24);
     textAlign(CENTER, CENTER);
-
 }
 
 function draw(){
-    textAlign(CENTER);
-    drawWords(width * 1);
-    fill(255);
+    for (let i = 0; i < 3; i++) {
+        push();
+        s1 = new StarzT1();
+        starz1.push(s1);
+        starz1[i].show();
+        pop();
+    }
+    for (let i = 0; i < 4; i++) {
+        push();
+        s2 = new StarzT2();
+        starz2.push(s2);
+        starz2[i].show();
+        pop();
+    }
+    for (let i = 0; i < 3; i++) {
+        push();
+        s3 = new StarzT3();
+        starz3.push(s3);
+        starz3[i].show();
+        pop();
+    }
+    for (let i = 0; i < 3; i++) {
+        push();
+        s1b = new StarzT1b();
+        starz1b.push(s1b);
+        starz1b[i].show();
+        pop();
+    }
+    for (let i = 0; i < 4; i++) {
+        push();
+        s2b = new StarzT2b();
+        starz2b.push(s2b);
+        starz2b[i].show();
+        pop();
+    }
+    for (let i = 0; i < 3; i++) {
+        push();
+        s3b = new StarzT3b();
+        starz3b.push(s3b);
+        starz3b[i].show();
+        pop();
+    }
 
     for(let i=0; i<triangles.length; i++){
         push();
         triangles[i].translate();
         triangles[i].rotate(200+frameCount/40);
         triangles[i].display();
-        //triangles[i].rollover(mouseX, mouseY);
         pop();
     }
-    //this could definitely be more efficient by creatings a stars class, however wanted to visually and conceptually understand what is occurring for each step
-    push(); //push and pop to have formatting only apply to single star at a time
-    if((mouseX<60) && (mouseX>20) && (mouseY<220) && (mouseY>180)){ //approximate rollover function
-        stroke(random(0, 255), random(0, 255), random(0, 255)) //star strokes flash with colors
-        fill(255, 255, 0)
-    }
-    star(40, 200, 20, 40, 5); //star function below shows parameters for defining star shape (x, y, radius, side length, number of points)
-    pop();
-    push();
-    if((mouseX<150) && (mouseX>110) && (mouseY<470) && (mouseY>430)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(130, 450, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<60) && (mouseX>20) && (mouseY<720) && (mouseY>680)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(40, 700, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<windowWidth/5 + 20) && (mouseX>windowWidth/5 - 20) && (mouseY<120) && (mouseY>80)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(windowWidth/5, 100, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<windowWidth/5+20) && (mouseX>windowWidth/5-20) && (mouseY<320) && (mouseY>280)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(windowWidth/5, 300, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<windowWidth/5+20) && (mouseX>windowWidth/5-20) && (mouseY<570) && (mouseY>530)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(windowWidth/5, 550, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<2*windowWidth/5+20) && (mouseX>2*windowWidth/5-20) && (mouseY<250) && (mouseY>210)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(2*windowWidth/5, 230, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<2*windowWidth/5+20) && (mouseX>2*windowWidth/5-20) && (mouseY<480) && (mouseY>440)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(2*windowWidth/5, 460, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<2*windowWidth/5+20) && (mouseX>2*windowWidth/5-20) && (mouseY<780) && (mouseY>740)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(2*windowWidth/5, 760, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<3*windowWidth/5+20) && (mouseX>3*windowWidth/5-20) && (mouseY<90) && (mouseY>50)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(3*windowWidth/5, 70, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<3*windowWidth/5+20) && (mouseX>3*windowWidth/5-20) && (mouseY<470) && (mouseY>430)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(3*windowWidth/5, 450, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<3*windowWidth/5+20) && (mouseX>3*windowWidth/5-20) && (mouseY<640) && (mouseY>600)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(3*windowWidth/5, 620, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<4*windowWidth/5+20) && (mouseX>4*windowWidth/5-20) && (mouseY<70) && (mouseY>30)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(4*windowWidth/5, 50, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<4*windowWidth/5+20) && (mouseX>4*windowWidth/5-20) && (mouseY<370) && (mouseY>330)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(4*windowWidth/5, 350, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<4*windowWidth/5+20) && (mouseX>4*windowWidth/5-20) && (mouseY<620) && (mouseY>580)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(4*windowWidth/5, 600, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<windowWidth-40+20) && (mouseX>windowWidth-40-20) && (mouseY<240) && (mouseY>200)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(windowWidth-40, 220, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<windowWidth-120+20) && (mouseX>windowWidth-120-20) && (mouseY<500) && (mouseY>460)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(windowWidth-120, 480, 20, 40, 5);
-    pop();
-    push();
-    if((mouseX<windowWidth-40+20) && (mouseX>windowWidth-40-20) && (mouseY<710) && (mouseY>670)){
-        stroke(random(0, 255), random(0, 255), random(0, 255))
-        fill(255, 255, 0)
-    }
-    star(windowWidth-40, 690, 20, 40, 5);
-    pop();
 
-
+    textAlign(CENTER);
+    drawWords(width * 1);
+    fill(255);
 }
 
 function drawWords(x) {
-    // The text() function needs three parameters:
-    // the text to draw, the horizontal position,
-    // and the vertical position
     fill(255, 0, 0);
-    text("   make a wish...", windowWidth/2, windowHeight/3-100);
+    text("  make a wish...", windowWidth/2, windowHeight/3-100);
     text("click on the stars", windowWidth/2, windowHeight/3-60);
   }
 
@@ -176,15 +106,15 @@ function star(x, y, radius1, radius2, npoints) {
     endShape(CLOSE);
   }
 
-  function mousePressed(){
+function mousePressed(){
     t = new Kaleid(mouseX, mouseY); //first triangle starts at mouse click location
     triangles.push(t); //push a new object into array
-  }
+}
 
 function keyPressed(){ //this allows the background to be reset any time enter key is pressed
     if (keyCode === ENTER) {
         background(255);
-        }
+    }
 }
 
 class Kaleid{
@@ -198,18 +128,8 @@ class Kaleid{
         this.x3 = random(-200, 200);
         this.y3 = random(-200, 200);
         this.color = random(0,255);
-
-        //this.over = false;
     }
-//following code is something that I may incorporate in the future, but I decided to leave it out for now
-    //rollover(mx, my){
-        //let d = dist(mx, my, 0, 0);
-        //if(d<windowWidth/2){
-           // this.over=true;
-        //}else{
-           //this.over=false;
-        //}
-        //}
+
     translate() {
         if(this.x2>this.y2){
             translate(this.x1p - frameCount, this.y1p - frameCount);
@@ -229,6 +149,105 @@ class Kaleid{
         stroke(this.color);
         triangle(0, 0, this.x2, this.y2, this.x3, this.y3);
     }
-
-
 }
+
+class StarzT1 {
+    constructor() {
+        this.x = random(40, windowWidth/3);
+        this.y = random(40, windowHeight/2);
+    }
+      
+    show() {
+        fill(255);
+        if((mouseX<this.x+20) && (mouseX>this.x-20) && (mouseY<this.y+20) && (mouseY>this.y-20)){
+            stroke(random(0, 255), random(0, 255), random(0, 255))
+            fill(255, 255, 0)
+        }
+        star(this.x, this.y, 40, 20, 5);
+        }
+    }
+
+class StarzT2 {
+    constructor() {
+        this.x = random(windowWidth/3, 2*windowWidth/3);
+         this.y = random(40, windowHeight/2);
+        }
+          
+    show() {
+        fill(255);
+        if((mouseX<this.x+20) && (mouseX>this.x-20) && (mouseY<this.y+20) && (mouseY>this.y-20)){
+            stroke(random(0, 255), random(0, 255), random(0, 255))
+            fill(255, 255, 0)
+        }
+        star(this.x, this.y, 40, 20, 5);
+        }
+    }
+
+class StarzT3 {
+    constructor() {
+        this.x = random(2*windowWidth/3, windowWidth-40);
+        this.y = random(40, windowHeight/2);
+    }
+              
+    show() {
+        fill(255);
+        if((mouseX<this.x+20) && (mouseX>this.x-20) && (mouseY<this.y+20) && (mouseY>this.y-20)){
+            stroke(random(0, 255), random(0, 255), random(0, 255))
+            fill(255, 255, 0)
+        }
+        star(this.x, this.y, 40, 20, 5);
+        }
+    }
+
+    class StarzT1b {
+        constructor() {
+            this.x = random(40, windowWidth/3);
+            this.y = random(windowHeight/2, windowHeight-40);
+        }
+          
+        show() {
+            fill(255);
+            if((mouseX<this.x+20) && (mouseX>this.x-20) && (mouseY<this.y+20) && (mouseY>this.y-20)){
+                stroke(random(0, 255), random(0, 255), random(0, 255))
+                fill(255, 255, 0)
+            }
+            star(this.x, this.y, 40, 20, 5);
+            }
+        }
+    
+    class StarzT2b {
+        constructor() {
+            this.x = random(windowWidth/3, 2*windowWidth/3);
+             this.y = random(windowHeight/2, windowHeight-40);
+            }
+              
+        show() {
+            fill(255);
+            if((mouseX<this.x+20) && (mouseX>this.x-20) && (mouseY<this.y+20) && (mouseY>this.y-20)){
+                stroke(random(0, 255), random(0, 255), random(0, 255))
+                fill(255, 255, 0)
+            }
+            star(this.x, this.y, 40, 20, 5);
+            }
+        }
+    
+    class StarzT3b {
+        constructor() {
+            this.x = random(2*windowWidth/3, windowWidth-40);
+            this.y = random(windowHeight/2, windowHeight-40);
+        }
+                  
+        show() {
+            fill(255);
+            if((mouseX<this.x+20) && (mouseX>this.x-20) && (mouseY<this.y+20) && (mouseY>this.y-20)){
+                stroke(random(0, 255), random(0, 255), random(0, 255))
+                fill(255, 255, 0)
+            }
+            star(this.x, this.y, 40, 20, 5);
+            }
+        }
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+}
+ 
