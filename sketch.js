@@ -15,17 +15,19 @@ let s3b;
 var mithella;
 var adaml;
 var adamm;
+var wishfont;
 
 function preload() {
+    wishfont = loadFont('wish.otf');
     mithella = loadFont('mithella.otf');
     adaml = loadFont('adaml.ttf');
     adamm = loadFont('adamm.ttf');
 }
+
 function setup(){
     createCanvas(windowWidth, windowHeight); //canvas will take up entire screen
-    textFont(adamm);
-    textSize(24);
-    textAlign(CENTER, CENTER);
+    pixelDensity(4);
+
 }
 
 function draw(){
@@ -80,16 +82,19 @@ function draw(){
         pop();
     }
 
+    textFont(wishfont);
+    textSize(80);
     textAlign(CENTER);
-    drawWords(width * 1);
-    fill(255);
+    text("  make a      ", windowWidth/2, windowHeight/3-50);
+    push();
+    fill(random(0, 255), random(0, 255), random(0, 255));
+    text("       wish", windowWidth/2, windowHeight/3-50);
+    pop();
+    textFont(adaml);
+    textSize(22);
+    text("click on the stars", windowWidth/2, windowHeight/3-20);
 }
 
-function drawWords(x) {
-    fill(255, 0, 0);
-    text("  make a wish...", windowWidth/2, windowHeight/3-60);
-    text("click on the stars", windowWidth/2, windowHeight/3-20);
-  }
 
 function star(x, y, radius1, radius2, npoints) {
     let angle = TWO_PI / npoints;
@@ -246,8 +251,3 @@ class StarzT3 {
             star(this.x, this.y, 40, 20, 5);
             }
         }
-
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-}
- 
