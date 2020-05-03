@@ -26,7 +26,7 @@ function preload() {
 
 function setup(){
     createCanvas(windowWidth, windowHeight); //canvas will take up entire screen
-    pixelDensity(4);
+    pixelDensity(3);
 
 }
 
