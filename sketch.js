@@ -83,8 +83,11 @@ function draw(){
     }
 
     textFont(wishfont);
-    textSize(80);
+    push();
+    textSize(90);
+    strokeWeight(1.125);
     textAlign(CENTER);
+    fill(0);
     text("  make a      ", windowWidth/2, windowHeight/3-50);
     push();
     fill(random(0, 255), random(0, 255), random(0, 255));
@@ -92,7 +95,12 @@ function draw(){
     pop();
     textFont(adaml);
     textSize(22);
+    push();
+    strokeWeight(1.125);
+    stroke(0);
     text("click on the stars", windowWidth/2, windowHeight/3-20);
+    pop();
+    pop();
 }
 
 
@@ -132,7 +140,8 @@ class Kaleid{
         this.y2 = random(-200, 200);
         this.x3 = random(-200, 200);
         this.y3 = random(-200, 200);
-        this.color = random(0,255);
+        this.color = random(0, 255);
+        this.cfill = [random(0, 255), random(0, 255), random(200, 255)];
     }
 
     translate() {
@@ -151,7 +160,8 @@ class Kaleid{
     }
 
     display() {
-        stroke(this.color);
+        stroke(this.cfill);
+        fill(255);
         triangle(0, 0, this.x2, this.y2, this.x3, this.y3);
     }
 }
@@ -175,7 +185,7 @@ class StarzT1 {
 class StarzT2 {
     constructor() {
         this.x = random(windowWidth/3, 2*windowWidth/3);
-         this.y = random(40, windowHeight/3-100);
+        this.y = random(40, windowHeight/3-100);
         }
           
     show() {
@@ -204,21 +214,21 @@ class StarzT3 {
         }
     }
 
-    class StarzT1b {
-        constructor() {
-            this.x = random(40, windowWidth/3);
-            this.y = random(windowHeight/2, windowHeight-40);
-        }
+class StarzT1b {
+    constructor() {
+        this.x = random(40, windowWidth/3);
+        this.y = random(windowHeight/2, windowHeight-40);
+    }
           
-        show() {
-            fill(255);
-            if((mouseX<this.x+20) && (mouseX>this.x-20) && (mouseY<this.y+20) && (mouseY>this.y-20)){
-                stroke(random(0, 255), random(0, 255), random(0, 255))
-                fill(255, 255, 0)
-            }
-            star(this.x, this.y, 40, 20, 5);
-            }
+    show() {
+        fill(255);
+        if((mouseX<this.x+20) && (mouseX>this.x-20) && (mouseY<this.y+20) && (mouseY>this.y-20)){
+            stroke(random(0, 255), random(0, 255), random(0, 255))
+            fill(255, 255, 0)
         }
+        star(this.x, this.y, 40, 20, 5);
+        }
+    }
     
     class StarzT2b {
         constructor() {
